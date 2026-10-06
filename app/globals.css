@@ -1,3 +1,9 @@
 @import "tailwindcss";
 @theme { --color-brand: #e11d2e; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 input, select, textarea { font-size: 16px; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}

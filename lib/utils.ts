@@ -7,7 +7,7 @@ export type Product = {
 export const brl = (n: number) =>
   new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(n);
 export const imgUrl = (p: string) =>
-  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/${p}`;
+  p.startsWith("/") ? p : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/product-images/${p}`;
 export const WA = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
 export const IG = process.env.NEXT_PUBLIC_INSTAGRAM ?? "";
 export const slugify = (s: string) =>

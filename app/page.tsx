@@ -11,8 +11,9 @@ export default async function Home() {
   ]);
   return (
     <>
-      <section className="bg-black text-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-28">
+      <section className="relative overflow-hidden bg-black text-white" style={{ backgroundImage: "url(/hero.svg)", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-32">
           <h1 className="max-w-2xl text-5xl font-black leading-[1.05] sm:text-7xl">Vista a rua. <span className="text-brand">Encomende</span> no zap.</h1>
           <p className="mt-4 max-w-md text-neutral-300">Escolha a peça, monte o carrinho e finalize direto com a gente no WhatsApp.</p>
           <Link href="/catalogo" className="mt-8 inline-block bg-brand px-8 py-4 font-bold">Ver catálogo</Link>

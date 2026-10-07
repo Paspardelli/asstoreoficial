@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/lib/utils";
 
 // Nome do arquivo da imagem de fundo que fica na pasta public (mude só aqui)
-const HERO = "/IMG_5046.jpeg";
+const HERO = "/IMG_banner.PNG";
 
 export default async function Home() {
   const sb = await createClient();

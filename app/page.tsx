@@ -3,6 +3,9 @@ import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/lib/utils";
 
+// Nome do arquivo da imagem de fundo que fica na pasta public (mude só aqui)
+const HERO = "/IMG";
+
 export default async function Home() {
   const sb = await createClient();
   const [{ data: feat }, { data: cats }] = await Promise.all([
@@ -11,7 +14,7 @@ export default async function Home() {
   ]);
   return (
     <>
-      <section className="relative overflow-hidden bg-black text-white" style={{ backgroundImage: "url(/hero.svg)", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="relative overflow-hidden bg-black text-white" style={{ backgroundImage: `url(${HERO})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-32">
           <h1 className="max-w-2xl text-5xl font-black leading-[1.05] sm:text-7xl">Vista a rua. <span className="text-brand">Encomende</span> no zap.</h1>
@@ -36,3 +39,4 @@ export default async function Home() {
     </>
   );
 }
+

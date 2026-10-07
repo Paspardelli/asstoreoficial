@@ -1,9 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
 import type { Product } from "@/lib/utils";
 
-// Nome do arquivo da imagem de fundo que fica na pasta public (mude só aqui)
+// Nome do arquivo do banner que fica na pasta public (mude só aqui)
 const HERO = "/IMG_banner.PNG";
 
 export default async function Home() {
@@ -14,12 +15,10 @@ export default async function Home() {
   ]);
   return (
     <>
-      <section className="relative overflow-hidden bg-black text-white" style={{ backgroundImage: `url(${HERO})`, backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-32">
-          <h1 className="max-w-2xl text-5xl font-black leading-[1.05] sm:text-7xl">Vista a rua. <span className="text-brand">Encomende</span> no zap.</h1>
-          <p className="mt-4 max-w-md text-neutral-300">Escolha a peça, monte o carrinho e finalize direto com a gente no WhatsApp.</p>
-          <Link href="/catalogo" className="mt-8 inline-block bg-brand px-8 py-4 font-bold">Ver catálogo</Link>
+      <section className="bg-black">
+        <Image src={HERO} alt="ASStore: roupas online" width={1672} height={940} priority sizes="100vw" className="mx-auto block h-auto w-full max-w-[1920px]" />
+        <div className="pb-8 pt-2 text-center">
+          <Link href="/catalogo" className="inline-block bg-brand px-8 py-4 font-bold text-white">Ver catálogo</Link>
         </div>
       </section>
       {cats && cats.length > 0 && (
@@ -39,4 +38,5 @@ export default async function Home() {
     </>
   );
 }
+
 

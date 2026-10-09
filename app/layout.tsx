@@ -1,8 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Archivo_Black, Archivo } from "next/font/google";
 import Header from "@/components/Header";
 import { CartProvider } from "@/lib/cart";
 import { WA, IG } from "@/lib/utils";
+
+const display = Archivo_Black({ weight: "400", subsets: ["latin"], variable: "--font-display" });
+const body = Archivo({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
   title: "ASStore | Streetwear",
@@ -11,15 +15,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
-      <body className="bg-white text-neutral-900 antialiased">
+    <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
+      <body className="antialiased">
         <CartProvider>
           <Header />
           <main className="min-h-[70vh]">{children}</main>
-          <footer className="mt-16 bg-black text-neutral-300">
+          <footer className="mt-16 border-t border-[var(--as-line)] bg-black text-neutral-300">
             <div className="mx-auto grid max-w-6xl gap-4 px-4 py-10 sm:grid-cols-2">
               <div>
-                <p className="text-xl font-black tracking-widest text-white">AS<span className="text-brand">STORE</span></p>
+                <p className="font-display text-xl tracking-widest text-white">AS<span className="text-brand">STORE</span></p>
                 <p className="mt-2 text-sm">Streetwear. Encomendas pelo WhatsApp.</p>
               </div>
               <div className="space-y-1 text-sm">
@@ -35,3 +39,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
